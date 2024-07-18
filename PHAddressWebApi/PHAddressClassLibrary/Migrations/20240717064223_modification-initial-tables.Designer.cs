@@ -2,17 +2,20 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using PHAddressWebApi.Entities;
+using PHAddressClassLibrary.Entities;
 
 #nullable disable
 
 namespace PHAddressWebApi.Migrations
 {
     [DbContext(typeof(PHAddressDbContext))]
-    partial class PHAddressDbContextModelSnapshot : ModelSnapshot
+    [Migration("20240717064223_modification-initial-tables")]
+    partial class modificationinitialtables
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

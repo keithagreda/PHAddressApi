@@ -1,6 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using PHAddressWebApi.Entities;
+using PHAddressClassLibrary;
+using PHAddressClassLibrary.Entities;
+using PHAddressClassLibrary.Services;
+using PHAddressWebApi.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -15,6 +18,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<PHAddressDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("Default"))
 );
+builder.Services.AddScoped<IAddress, Address>();
 
 var app = builder.Build();
 
@@ -28,6 +32,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
+app.UseMiddleware<GlobalExceptionHandlingMiddleware>();
 
 app.MapControllers();
 

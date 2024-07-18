@@ -1,4 +1,4 @@
-﻿namespace PHAddressWebApi.Entities
+﻿namespace PHAddressClassLibrary.Entities
 {
     public class Region
     {

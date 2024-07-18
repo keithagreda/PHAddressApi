@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace PHAddressWebApi.Entities
+namespace PHAddressClassLibrary.Entities
 {
     public class PHAddressDbContext : DbContext
     {
